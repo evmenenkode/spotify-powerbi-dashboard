@@ -1,0 +1,37 @@
+_Image html = 
+VAR x =
+    CALCULATE(
+        MAX(updated_file[image_url]),
+        updated_file[streams] = MAX(updated_file[streams])
+    )
+RETURN
+"
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='UTF-8'>
+<title>Image Cropping</title>
+<style>
+.image-container {
+    width: 475px; /* Ширина контейнера */
+    height: 90px; /* Высота контейнера */
+    overflow: hidden; /* Скрытие частей изображения, которые не помещаются */
+    border-radius: 15px; /* Закругленные углы */
+    position: relative; /* Относительное позиционирование для дочернего элемента */
+}
+.image {
+    object-fit: cover; /* Заполнение всего контейнера */
+    object-position: center; /* Центрирование изображения */
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    border-radius: 15px; /* Закругленные углы */
+}
+</style>
+</head>
+<body>
+<div class='image-container'>
+    <img src='" & x & "' alt='Album Cover' class='image'>
+</div>
+</body>
+</html>
+"
